@@ -12,12 +12,12 @@ const execute = async () => {
         const ingredients = Ingredients.load(data);
         const cauldron = new Cauldron(ingredients);
         //para probar con otras bolsas cambia el pouch por: puch_green,pouch_yellow,pouch_red 
-        const bagIngredients = player.players[0].pouch_red;
+        const bagIngredients = player.players[0].pouch_yellow;
         const potionBag = PotionBag.create(bagIngredients, cauldron);
         showPotions(potionBag.potions);
         const joseph = Character.from(player.players[0], potionBag.potions);
         showCharacter(joseph);
-        joseph.drinkEmAll();
+        joseph.drinkEmAll(ingredients);
     } catch (error) {
         console.log("Error:", error.message);
     }
